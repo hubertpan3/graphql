@@ -1,12 +1,14 @@
 package com.icarusfrog.graphql.repositories;
 
 import com.icarusfrog.graphql.models.Book;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class BookRepository {
     private List<Book> bookList = List.of(
@@ -16,6 +18,7 @@ public class BookRepository {
     );
 
     public Optional<Book> getBookById(String bookId) {
+        log.info("Querying for book by id {}", bookId);
         if(Objects.isNull(bookId)) {
             return Optional.empty();
         }

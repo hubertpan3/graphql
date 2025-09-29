@@ -1,4 +1,4 @@
 package com.icarusfrog.graphql.models;
 
-public record Author(String authorId, String firstName, String lastName) {
+public record Author(String id, String firstName, String lastName) {
 }

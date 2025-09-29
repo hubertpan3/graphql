@@ -1,12 +1,14 @@
 package com.icarusfrog.graphql.repositories;
 
 import com.icarusfrog.graphql.models.Author;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class AuthorRepository {
     private List<Author> authors = List.of(
@@ -16,9 +18,10 @@ public class AuthorRepository {
     );
 
     public Optional<Author> getAuthorById(String authorId) {
+        log.info("Querying for Author by authorId: {}", authorId);
         if(Objects.isNull(authorId)) {
             return Optional.empty();
         }
-        return authors.stream().filter(author -> authorId.contentEquals(author.authorId())).findFirst();
+        return authors.stream().filter(author -> authorId.contentEquals(author.id())).findFirst();
     }
 }
