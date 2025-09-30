@@ -24,8 +24,14 @@ public class BookController {
     }
 
     @QueryMapping
-    public Book bookById(@Argument("id") String bookId) {
+    public Book bookById(@Argument("id") String bookId, @Argument("title") String title) {
+        log.info("Querying by bookId {} and or title {}", bookId, title);
         return bookRepository.getBookById(bookId).orElse(null);
+    }
+
+    @QueryMapping
+    public Author authorById(@Argument("id") String authorId) {
+        return authorRepository.getAuthorById(authorId).orElse(null);
     }
 
     @SchemaMapping("author")
