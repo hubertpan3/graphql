@@ -14,8 +14,8 @@ import org.springframework.stereotype.Controller;
 @Slf4j
 @Controller
 public class BookController {
-    private BookRepository bookRepository;
-    private AuthorRepository authorRepository;
+    private final BookRepository bookRepository;
+    private final AuthorRepository authorRepository;
 
     @Autowired
     public BookController(BookRepository bookRepository, AuthorRepository authorRepository) {
