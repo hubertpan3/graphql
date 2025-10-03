@@ -13,12 +13,12 @@ import org.springframework.stereotype.Controller;
 
 @Slf4j
 @Controller
-public class BookController {
+public class GraphQlController {
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
 
     @Autowired
-    public BookController(BookRepository bookRepository, AuthorRepository authorRepository) {
+    public GraphQlController(BookRepository bookRepository, AuthorRepository authorRepository) {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
     }
